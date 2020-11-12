@@ -1,0 +1,9 @@
+#gerando report via: rake specs["-t @tag"]
+default: -p ci
+bdd: --format pretty
+dot: --format progress
+html: --format html --out=log/report.html
+json: --format json --out=log/report.json
+ci: -p json -p pretty
+pretty: --format pretty
+progress: --format progress
