@@ -18,12 +18,9 @@ Funcionalidade: Login SisCom
 
   Esquema do Cenário: Login com falha
   Dado que eu acesse a página principal
-  Quando realizar o login email "<email>" e senha "<senha>"
+  Quando realizar o login com email "<email>" e senha "<senha>"
   Então mostrará a mensagem usuário ou senha inválidos
     Exemplos:
       |email        |senha         |
       |gisele.meta  |              |
-#      |gisele.meta  |invalida      |
-#      |             |invalida      |
-#      |             |              |
-
+      |             |MeGi2020      |
