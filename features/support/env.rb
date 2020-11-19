@@ -38,6 +38,8 @@ Before do
   @login_page = LoginPage.new(@driver)
   @home_page = HomePage.new(@driver)
   @MenuSiscom_page = MenuSiscomPage.new(@driver)
+  @CadastroMaterial_page = CadastroMaterialPage.new(@driver)
+  @ManterRp_page = ManterRpPage.new(@driver)
   # Fim instancias de paginas #
 
 end

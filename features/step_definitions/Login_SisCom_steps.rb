@@ -8,18 +8,8 @@ When(/^realizar o login com email "([^"]*)" e senha "([^"]*)"$/) do |arg1, arg2|
   @login_page.autenticar
 end
 
-When("que eu acesse a página principal sem permissão para visualizar o modulo de reserva") do
-  pending
-end
 
 Then("mostrará o usuário logado {string}") do |nome_usuario|
-  @home_page.visitar_home
-  @MenuSiscom_page.sel_MaterialTradicional
-  embed(@home_page.print, "image/png", "Screenshot")
-  @home_page.visitar_home
-  sleep 3
-  @MenuSiscom_page.sel_IncluirRp
-  embed(@home_page.print, "image/png", "Screenshot")
   @home_page.visitar_home
   sleep 3
   @MenuSiscom_page.sel_GradeBasica

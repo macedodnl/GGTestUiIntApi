@@ -11,10 +11,6 @@ Funcionalidade: Login SisCom
     Quando realizar o login com email "gisele.meta" e senha "MeGi2020"
     Então mostrará o usuário logado ""
 
-  Cenário: Login com e sucesso
-    Dado que eu acesse a página principal sem permissão para visualizar o modulo de reserva
-    Quando realizar o login com email "gisele.meta" e senha "MeGi2020"
-    Então mostrará o usuário logado ""
 
   Esquema do Cenário: Login com falha
   Dado que eu acesse a página principal
