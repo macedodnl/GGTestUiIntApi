@@ -1,7 +1,7 @@
 #language:pt
 #encoding: utf-8
 
-@Front @Login
+@Login
 Funcionalidade: Login SisCom
 
   Login com e sem falha no sistema siscom

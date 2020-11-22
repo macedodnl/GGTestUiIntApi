@@ -4,6 +4,7 @@ require "report_builder"
 require 'cucumber'
 
 class BaseTest
+  include HTTParty
 
 
   def initialize(driver)
@@ -18,5 +19,12 @@ class BaseTest
   def close_browser()
     @driver.bridge.close
   end
+
+  #requests
+  def self.carregarUltimaAlteracaoMaterial(material)
+    get("http://int-material-enriquecimento-api-dev.gcloud.dev.globoi.com/v1/material/tradicional?materiais=" + material,
+        headers: { "Content-Type" => "application/json" })
+  end
+
 
 end

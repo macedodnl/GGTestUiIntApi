@@ -72,7 +72,7 @@ class MenuSiscomPage < BaseTest
     opMaterialTradicial.click
     @driver.action.move_to(tabelaManterDadosbasicos).perform
     tabelaManterDadosbasicos.click
-    sleep 8
+    sleep 4
   end
 
 end

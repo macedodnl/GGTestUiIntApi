@@ -7,24 +7,46 @@ class ManterRpPage < BaseTest
     outerdiv = @driver.find_element(:xpath, '//*[@id="outerDiv"]')
     iframe = outerdiv.find_element(:id, 'ifrmPrincipal')
     @driver.switch_to.frame iframe
-    return iframe
   end
 
   def busca_Rp
     #frame foco
     sel_Iframe
-
     #mapeamento de elementos de pagina
-    form = @driver.find_element(:xpath, '/html/body/form')
-    tabGeral = form.find_element(:xpath, '/html/body/form/table')
-    tabMain = tabGeral.find_element(:class, 'tableMain')
-    rp = tabMain.find_element(:class, 'textField')
+    divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
+    tabConsulta = divPrincipal.find_element(:id, 'ptApp:pglCabecalho')
+    inserirrp = tabConsulta.find_element(:id, 'ptApp:txtCodRP::content')
 
     #acoes
-    @driver.action.move_to(rp).perform
-    rp.click
-    rp.send_keys "626518", :return
+    @driver.action.move_to(inserirrp).perform
+    inserirrp.click
+    inserirrp.send_keys "626486", :return
     sleep 12
+  end
+
+  def edita_Rp
+    #mapeamento de elementos de pagina
+    divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
+    divDadosRp = divPrincipal.find_element(:id, 'ptApp:ptdDadosRP')
+    tabObs = divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtObs')
+    textoObs = tabObs.find_element(:id, 'ptApp:rgCrtrz:txtObs::content')
+    tabBotoes = divPrincipal.find_element(:id, 'ptApp:pgBotoes')
+    btnsalvar = tabBotoes.find_element(:id, 'ptApp:cilSalvar')
+
+    #ações
+    @driver.action.move_to(textoObs).perform
+    textoObs.click
+    textoObs.clear
+    textoObs.send_keys "NOVA OBS ENVIADA PELO ROBO DE AUTOMACAO DE TESTES", :return
+    @driver.action.move_to(btnsalvar).perform
+    btnsalvar.click
+    sleep 12
+
+  end
+
+  def valida_msg
+    msg = @driver.find_element(:id, 'ptApp:svMensagens:pglMensagem')
+    @driver.action.move_to(msg).perform
   end
 
   def edita_Caracterizacao
@@ -67,9 +89,9 @@ class ManterRpPage < BaseTest
     set_SubCategoria.click
     @driver.action.move_to(set_Obs).perform
     set_Obs.click
-    set_Obs.send_keys "obs", :return
-    @driver.action.move_to(tabBotoes).perform
-    tabBotoes.click
+    # set_Obs.send_keys "obs", :return
+    # @driver.action.move_to(tabBotoes).perform
+    # tabBotoes.click
 
     sleep 12
   end
