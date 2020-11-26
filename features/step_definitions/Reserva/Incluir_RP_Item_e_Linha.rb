@@ -22,12 +22,17 @@ end
 Quando("aciono na aba Abrangência e") do
   @ManterRp_page.sel_TabAbrangencia
   sleep 5
-  # @ManterRp_page.valida_msg
+  @ManterRp_page.ad_Abrangencia("gn6")
+  @ManterRp_page.sel_TabVeiculacao
   embed(@ManterRp_page.print, "image/png", "Screenshot")
 end
 
 Quando("aciono Incluir") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @ManterRp_page.ad_Programa("6N21H")
+  # @ManterRp_page.sel_Modalidade("CPT")
+  # @ManterRp_page.sel_Duracao("20")
+  # @ManterRp_page.sel_Incluir
+  embed(@ManterRp_page.print, "image/png", "Screenshot")
 end
 
 Então("RP é atualizado com sucesso") do

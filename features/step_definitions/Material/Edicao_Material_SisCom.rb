@@ -17,7 +17,7 @@ end
 
 Quando("após a edição do material com dados válidos as alterações são salvas {string} {string} {string}") do |endereco, titulo, obs|
   @CadastroMaterial_page.edita_Material(endereco, titulo, obs)
-  embed(@home_page.print, "image/png", "Screenshot")
+  embed(@CadastroMaterial_page.print, "image/png", "Screenshot")
 end
 
 
@@ -45,7 +45,7 @@ end
 
 Quando("após a edição do material com dados inválidos as alterações são salvas") do
   @CadastroMaterial_page.edita_Material
-  embed(@home_page.print, "image/png", "Screenshot")
+  embed(@CadastroMaterial_page.print, "image/png", "Screenshot")
 end
 
 Então("o material não deverá ser salvo e não deverá ser enviado para a central de exibição") do
