@@ -29,9 +29,8 @@ end
 
 Quando("aciono Incluir") do
   @ManterRp_page.ad_Programa("6N21H")
-  # @ManterRp_page.sel_Modalidade("CPT")
-  # @ManterRp_page.sel_Duracao("20")
-  # @ManterRp_page.sel_Incluir
+  @ManterRp_page.sel_Modalidade("CPT")
+  @ManterRp_page.sel_Duracao("20")
   embed(@ManterRp_page.print, "image/png", "Screenshot")
 end
 

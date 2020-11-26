@@ -24,7 +24,7 @@ Before do
 
   #args: ['-headless'] -> execução em modo texto
   #args: [] -> execução em modo gráfico
-  opts = Selenium::WebDriver::Chrome::Options.new(args: ['-headless'])
+  opts = Selenium::WebDriver::Chrome::Options.new(args: [])
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(accept_insecure_certs: true)
   caps["pageLoadStrategy"] = "eager"
   @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)

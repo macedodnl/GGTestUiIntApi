@@ -40,9 +40,7 @@ class ManterRpPage < BaseTest
     map
     sleep 1
     #mapeamento de elementos da aba abrangencia
-    @@ExpandirEur = @@divDadosRp.find_element(:id, 'ptApp:rgAbr:tblMerc:2::di')
     @@Mnemonico = @@divDadosRp.find_element(:id, 'ptApp:rgAbr:sfAdicMerDig:itAdicMerDig::content')
-    @@BtnAdicionar = @@divDadosRp.find_element(:id, 'ptApp:rgAbr:imgAdic')
   end
 
   def map_Abrangencia_Pos_Expandir
@@ -68,11 +66,15 @@ class ManterRpPage < BaseTest
     @@tabAdAbrangencia = @@tdInclusao.find_element(:id, 'ptApp:rgVeic:pgInclusao')
     @@tabInclusaoUltima = @@tabAdAbrangencia.find_element(:id, 'ptApp:rgVeic:pgl14')
     @@textPrograma = @@tabInclusaoUltima.find_element(:id, 'ptApp:rgVeic:sfPrg:iptAdicPrograma::content')
-
-    # @@textModalidade = @@tabInclusaoUltima.find_element(:id, 'ptApp:rgVeic:iptModalidade::content')
-    # @@textMaterial = @@tabInclusaoUltima.find_element(:id, 'ptApp:rgVeic:selMat::content')
-    # @@textDuracao = @@tabInclusaoUltima.find_element(:id, 'ptApp:rgVeic:selDur::content')
-    # @@btnIncluir = @@tabInclusaoUltima.find_element(:id, 'ptApp:rgVeic:btIcItem')
+    @@tabPgModalidade = @@tabIncDisp.find_element(:id, 'ptApp:rgVeic:pgMod')
+    @@tabModalidadeUltima = @@tabPgModalidade.find_element(:id, 'ptApp:rgVeic:iptModalidade')
+    @@textModalidade = @@tabModalidadeUltima.find_element(:id, 'ptApp:rgVeic:iptModalidade::content')
+    @@tabMaterialDuracao = @@tdInclusao.find_element(:id, 'ptApp:rgVeic:pgMaterial')
+    @@tabMaterial = @@tabMaterialDuracao.find_element(:id, 'ptApp:rgVeic:selMat')
+    @@selMaterial = @@tabMaterialDuracao.find_element(:id, 'ptApp:rgVeic:selMat::content')
+    @@tabDuracao = @@tabMaterialDuracao.find_element(:id, 'ptApp:rgVeic:selDur')
+    @@textDuracao = @@tabDuracao.find_element(:id, 'ptApp:rgVeic:selDur::content')
+    @@pgCalendario= @@tdInclusao.find_element(:id, 'ptApp:rgVeic:pgCalend')
   end
 
   #Frame foco
@@ -201,6 +203,7 @@ class ManterRpPage < BaseTest
 
   def sel_Duracao(duracao)
     @@textDuracao.send_keys duracao, :return
+    sleep 5
   end
 
   def sel_Incluir
