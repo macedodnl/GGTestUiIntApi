@@ -4,6 +4,7 @@ require 'selenium-webdriver'
 
 
 class CadastroMaterialPage < BaseTest
+  include Selenium::WebDriver::Support
 
   def sel_Iframe
   #mapeamento de elementos de pagina

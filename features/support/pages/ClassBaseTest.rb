@@ -26,5 +26,10 @@ class BaseTest
         headers: { "Content-Type" => "application/json" })
   end
 
+  def self.carregarUltimaAlteracaoReserva(reserva, linha)
+    get("http://int-reserva-enriquecimento-api-dev.gcloud.dev.globoi.com/v1/reserva/?reserva="+reserva+"&linha="+linha+"&operaConjunto=N",
+        headers: { "Content-Type" => "application/json" })
+  end
+
 
 end

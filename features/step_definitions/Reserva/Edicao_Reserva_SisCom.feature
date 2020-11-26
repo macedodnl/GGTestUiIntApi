@@ -1,8 +1,8 @@
 #language:pt
 #encoding: utf-8
-
+#-10dias
 @Front @Reserva
-Funcionalidade: Edita de Reserva SisCom
+Funcionalidade: Reserva
 
   Edita reserva com envio para central de exibição
   @Edita_Reserva_envia

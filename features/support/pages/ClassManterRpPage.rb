@@ -1,146 +1,132 @@
 require 'selenium-webdriver'
 
 class ManterRpPage < BaseTest
+  include Selenium::WebDriver::Support
+
+
+  def map
+    #mapeamento de elementos de pagina
+    @@divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
+    @@tabConsulta = @@divPrincipal.find_element(:id, 'ptApp:pglCabecalho')
+    @@inserirrp = @@tabConsulta.find_element(:id, 'ptApp:txtCodRP::content')
+    @@divDadosRp = @@divPrincipal.find_element(:id, 'ptApp:ptdDadosRP')
+    @@abaAbrangencia = @@divDadosRp.find_element(:id, 'ptApp:sdiAbrangenciaRP::disAcr')
+    @@CaracteristicaCompra = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:selCaracteristica::content')
+    @@ProdutoPortfolio = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:selPortfolio::content')
+    @@ContatoAtendimento = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtContato::content')
+    @@MesAno = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtVeiculacao::content')
+    @@Cliente = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtCliente::content')
+    @@Agencia = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtAgencia::content')
+    @@Operacao = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtTipoOperacao::content')
+    @@RefMapa = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtRefMapa::content')
+    @@tabObs = @@divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtObs')
+    @@textoObs = @@tabObs.find_element(:id, 'ptApp:rgCrtrz:txtObs::content')
+    @@tabBotoes = @@divPrincipal.find_element(:id, 'ptApp:pgBotoes')
+    @@btnsalvar = @@tabBotoes.find_element(:id, 'ptApp:cilSalvar')
+    @@msg = @driver.find_element(:id, 'ptApp:svMensagens:pglMensagem')
+  end
+
 
   def sel_Iframe
-    #mapeamento de elementos de pagina
-    outerdiv = @driver.find_element(:xpath, '//*[@id="outerDiv"]')
-    iframe = outerdiv.find_element(:id, 'ifrmPrincipal')
+    @@outerdiv = @driver.find_element(:xpath, '//*[@id="outerDiv"]')
+    iframe = @@outerdiv.find_element(:id, 'ifrmPrincipal')
     @driver.switch_to.frame iframe
   end
 
   def busca_Rp
-    #frame foco
-    sel_Iframe
-    #mapeamento de elementos de pagina
-    divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
-    tabConsulta = divPrincipal.find_element(:id, 'ptApp:pglCabecalho')
-    inserirrp = tabConsulta.find_element(:id, 'ptApp:txtCodRP::content')
-
-    #acoes
-    @driver.action.move_to(inserirrp).perform
-    inserirrp.click
-    inserirrp.send_keys "626486", :return
-    sleep 12
+    map
+    @driver.action.move_to(@@inserirrp).perform
+    @@inserirrp.click
+    @@inserirrp.send_keys "626633", :return
+    sleep 10
   end
 
   def edita_Rp
-    #mapeamento de elementos de pagina
-    divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
-    divDadosRp = divPrincipal.find_element(:id, 'ptApp:ptdDadosRP')
-    tabObs = divDadosRp.find_element(:id, 'ptApp:rgCrtrz:txtObs')
-    textoObs = tabObs.find_element(:id, 'ptApp:rgCrtrz:txtObs::content')
-    tabBotoes = divPrincipal.find_element(:id, 'ptApp:pgBotoes')
-    btnsalvar = tabBotoes.find_element(:id, 'ptApp:cilSalvar')
-
-    #ações
-    @driver.action.move_to(textoObs).perform
-    textoObs.click
-    textoObs.clear
-    textoObs.send_keys "NOVA OBS ENVIADA PELO ROBO DE AUTOMACAO DE TESTES", :return
-    @driver.action.move_to(btnsalvar).perform
-    btnsalvar.click
+    map
+    @driver.action.move_to(@@textoObs).perform
+    @@textoObs.click
+    @@textoObs.clear
+    @@textoObs.send_keys "NOVA OBS ENVIADA PELO ROBO DE AUTOMACAO DE TESTES", :return
+    @driver.action.move_to(@@btnsalvar).perform
+    @@btnsalvar.click
     sleep 12
-
   end
 
   def valida_msg
-    msg = @driver.find_element(:id, 'ptApp:svMensagens:pglMensagem')
-    @driver.action.move_to(msg).perform
+    map
+    @driver.action.move_to(@@msg).perform
   end
 
-  def edita_Caracterizacao
-    #mapeamento de elementos de pagina
-    form = @driver.find_element(:xpath, '/html/body/form[2]')
-    tabGeral = form.find_element(:xpath, '/html/body/form[2]/table')
-    tabSuperior = tabGeral.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]')
-    sel_CaracteriscitaCompra = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]td/1')
-    sel_ProdutoPortifolio = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]td/2')
-    sel_ContratoAtendimento = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/1')
-    sel_ContratoRemuneracao = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/2')
-    set_Mes = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/5')
-    set_Cliente = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/6')
-    set_DocCliente = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/7')
-    set_Agencia = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/8')
-    set_DocAgencia = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/9')
-    set_SubCategoria = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/10')
-    set_Obs = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[4]td/11')
+  def sel_CaracteristicaCompra(op)
+    map
+    @@opCaracteristicaCompra = Selenium::WebDriver::Support::Select.new(@@CaracteristicaCompra)
+    @@opCaracteristicaCompra.select_by(:value, op)
+    sleep 0.5
+  end
 
-    #acoes
-    @driver.action.move_to(sel_CaracteriscitaCompra).perform
-    sel_CaracteriscitaCompra.click
-    @driver.action.move_to(sel_ProdutoPortifolio).perform
-    sel_ProdutoPortifolio.click
-    @driver.action.move_to(sel_ContratoAtendimento).perform
-    sel_ContratoAtendimento.click
-    @driver.action.move_to(sel_ContratoRemuneracao).perform
-    sel_ContratoRemuneracao.click
-    @driver.action.move_to(set_Mes).perform
-    set_Mes.click
-    @driver.action.move_to(set_Cliente).perform
-    set_Cliente.click
-    @driver.action.move_to(set_DocCliente).perform
-    set_DocCliente.click
-    @driver.action.move_to(set_Agencia).perform
-    set_Agencia.click
-    @driver.action.move_to(set_DocAgencia).perform
-    set_DocAgencia.click
-    @driver.action.move_to(set_SubCategoria).perform
-    set_SubCategoria.click
-    @driver.action.move_to(set_Obs).perform
-    set_Obs.click
-    # set_Obs.send_keys "obs", :return
-    # @driver.action.move_to(tabBotoes).perform
-    # tabBotoes.click
+  def sel_ProdutoPortfolio(op)
+    map
+    @@opProdutoPortfolio = Selenium::WebDriver::Support::Select.new(@@ProdutoPortfolio)
+    @@opProdutoPortfolio.select_by(:value, op)
+    sleep 0.5
+  end
 
+  def sel_ContatoAtendimento(op)
+    map
+    @driver.action.move_to(@@ContatoAtendimento).perform
+    @@ContatoAtendimento.click
+    @@ContatoAtendimento.send_keys op, :return
+    sleep 0.5
+  end
+
+  def insere_MesAno(mesano)
+    map
+    @driver.action.move_to(@@MesAno).perform
+    @@MesAno.click
+    @@MesAno.send_keys mesano, :return
+    sleep 0.5
+  end
+
+  def insere_Cliente(cliente)
+    map
+    @driver.action.move_to(@@Cliente).perform
+    @@Cliente.click
+    @@Cliente.send_keys cliente, :return
+    sleep 0.5
+  end
+
+  def insere_Agencia(agencia)
+    map
+    @driver.action.move_to(@@Agencia).perform
+    @@Agencia.click
+    @@Agencia.send_keys agencia, :return
+    sleep 0.5
+  end
+
+  def insere_Operacao(operacao)
+    map
+    @driver.action.move_to(@@Operacao).perform
+    @@Operacao.click
+    @@Operacao.send_keys operacao, :return
+    :tab
+    sleep 0.3
+  end
+
+  def insere_RefMapa(refmapa)
+    sleep 2
+    map
+    @driver.action.move_to(@@RefMapa).perform
+    @@RefMapa.click
+    @@RefMapa.send_keys refmapa, :return
+    sleep 0.3
+  end
+
+  def sel_TabAbrangencia
+    map
+    @driver.action.move_to(@@abaAbrangencia).perform
+    @@abaAbrangencia.click
     sleep 12
   end
-
-  def informa_Abrangencia
-    #mapeamento de elementos de pagina
-    form = @driver.find_element(:xpath, '/html/body/form[3]')
-    tabGeral = form.find_element(:xpath, '/html/body/form[3]/table[1]')
-    tabEsrutura = tabGeral.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]')
-    open_Euro = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]td/1')
-    sel_GN6 = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]td/1')
-    inclui_Abrangencia = tabSuperior.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[3]td/1')
-    #acoes
-    @driver.action.move_to(open_Euro).perform
-    open_Euro.click
-    @driver.action.move_to(sel_GN6).perform
-    sel_GN6.click
-    @driver.action.move_to(inclui_Abrangencia).perform
-    inclui_Abrangencia.click
-  end
-
-  def informa_Veiculacao
-    #mapeamento de elementos de pagina
-    form = @driver.find_element(:xpath, '/html/body/form[2]')
-    tabGeral = form.find_element(:xpath, '/html/body/form[2]/table[1]')
-    tabInclusaoDisponibilidade = tabGeral.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[5]')
-    sel_Prog = tabInclusaoDisponibilidade.find_element(:xpath, '//*[@id="ptApp:rgVeic:tbProgr::db"]/table')
-    sel_Moalidade = tabInclusaoDisponibilidade.find_element(:id, 'ptApp:rgVeic:iptModalidade::content')
-    sel_Material = tabInclusaoDisponibilidade.find_element(:id, 'ptApp:rgVeic:selMat::content')
-    sel_Mapa = tabInclusaoDisponibilidade.find_element(:xpath, '//*[@id="ptApp:rgVeic:pgCalen"]/tbody/tr/td')
-    btn_incluir = tabSuperior.find_element(:id, 'ptApp:rgVeic:imgInc')
-
-    #acoes
-    @driver.action.move_to(sel_Prog).perform
-    sel_Prog.click
-    @driver.action.move_to(sel_Moalidade).perform
-    sel_Moalidade.click
-    @driver.action.move_to(sel_Material).perform
-    sel_Material.click
-    driver.action.move_to(sel_Mapa).perform
-    sel_Mapa.click
-    driver.action.move_to(btn_incluir).perform
-    btn_incluir.click
-  end
-
-
-
-
-
 
 end
 

@@ -15,8 +15,16 @@ class LoginPage < BaseTest
     end
 
     def autenticar
-        sleep 2
+        sleep 0.3
         @driver.find_element(class: "elementos_soltos").click
+    end
+
+    def loginPadrao
+        setuser("gisele.meta")
+        sleep 0.3
+        setpass("MeGi2020")
+        sleep 0.3
+        autenticar
     end
 
     def aceite

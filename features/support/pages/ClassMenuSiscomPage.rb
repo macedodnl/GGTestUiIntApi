@@ -27,7 +27,7 @@ class MenuSiscomPage < BaseTest
     @driver.action.move_to(opRegistroCompra).perform
     opRegistroCompra.click
     opIncluirRp.click
-    sleep 12
+    sleep 5
   end
 
   def sel_GradeBasica

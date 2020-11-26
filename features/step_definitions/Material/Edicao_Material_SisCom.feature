@@ -2,7 +2,7 @@
 #encoding: utf-8
 
 @Front @Material
-Funcionalidade: Ediçao de Material SisCom
+Funcionalidade: Material
 
 #  @Editar_Material_falha
 #  Cenário: Edtar material com falha
