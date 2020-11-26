@@ -29,8 +29,8 @@ Before do
   caps["pageLoadStrategy"] = "eager"
   @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)
 
-  @driver.manage.timeouts.implicit_wait = 15
-  @driver.manage.timeouts.page_load= 15
+  @driver.manage.timeouts.implicit_wait = 30
+  @driver.manage.timeouts.page_load= 30
   @driver.manage.window.resize_to(1366, 768)
 
 

@@ -56,6 +56,12 @@ Funcionalidade: Reserva
 
       |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
 
+      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
+
+      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
+
+      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
+
 #      | Contato de Atendimento | ANA BULL |
 #
 #      | Cliente | POR BENE FARM |

@@ -5,6 +5,7 @@ class ManterRpPage < BaseTest
 
 
   def map
+    sleep 1
     #mapeamento de elementos de pagina
     @@divPrincipal = @driver.find_element(:id, 'ptApp:pnbPrincipalRP::content')
     @@tabConsulta = @@divPrincipal.find_element(:id, 'ptApp:pglCabecalho')
@@ -61,69 +62,57 @@ class ManterRpPage < BaseTest
     map
     @@opCaracteristicaCompra = Selenium::WebDriver::Support::Select.new(@@CaracteristicaCompra)
     @@opCaracteristicaCompra.select_by(:value, op)
-    sleep 0.5
+    sleep 1
   end
 
   def sel_ProdutoPortfolio(op)
     map
     @@opProdutoPortfolio = Selenium::WebDriver::Support::Select.new(@@ProdutoPortfolio)
     @@opProdutoPortfolio.select_by(:value, op)
-    sleep 0.5
+    sleep 1
   end
 
   def sel_ContatoAtendimento(op)
     map
-    @driver.action.move_to(@@ContatoAtendimento).perform
-    @@ContatoAtendimento.click
     @@ContatoAtendimento.send_keys op, :return
-    sleep 0.5
+    sleep 2
   end
 
   def insere_MesAno(mesano)
     map
-    @driver.action.move_to(@@MesAno).perform
-    @@MesAno.click
     @@MesAno.send_keys mesano, :return
-    sleep 0.5
   end
 
   def insere_Cliente(cliente)
     map
-    @driver.action.move_to(@@Cliente).perform
-    @@Cliente.click
     @@Cliente.send_keys cliente, :return
-    sleep 0.5
+    sleep 5
+    @@MesAno.click
   end
 
   def insere_Agencia(agencia)
     map
-    @driver.action.move_to(@@Agencia).perform
     @@Agencia.click
     @@Agencia.send_keys agencia, :return
-    sleep 0.5
+    sleep 5
+    :return
   end
 
   def insere_Operacao(operacao)
     map
-    @driver.action.move_to(@@Operacao).perform
-    @@Operacao.click
     @@Operacao.send_keys operacao, :return
-    :tab
-    sleep 0.3
+    sleep 5
+
   end
 
   def insere_RefMapa(refmapa)
-    sleep 2
     map
-    @driver.action.move_to(@@RefMapa).perform
-    @@RefMapa.click
     @@RefMapa.send_keys refmapa, :return
-    sleep 0.3
+    :return
   end
 
   def sel_TabAbrangencia
     map
-    @driver.action.move_to(@@abaAbrangencia).perform
     @@abaAbrangencia.click
     sleep 12
   end
