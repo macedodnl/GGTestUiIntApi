@@ -54,13 +54,13 @@ Funcionalidade: Reserva
 
       |caracteristica_compra | produto_portfolio |contato_atendimento     |mes_ano  |cliente            |agencia                  |operacao |ref_mapa     |
 
-      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
+      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |
 
-      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
-
-      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
-
-      |1                     | 55                |Ana Claudia Armiliato.  |11/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |000001       |
+#      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |
+#
+#      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |
+#
+#      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |
 
 #      | Contato de Atendimento | ANA BULL |
 #
