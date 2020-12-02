@@ -1,8 +1,5 @@
 require 'selenium-webdriver'
 
-
-
-
 class CadastroMaterialPage < BaseTest
   include Selenium::WebDriver::Support
 

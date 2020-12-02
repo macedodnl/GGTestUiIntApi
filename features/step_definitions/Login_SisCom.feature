@@ -8,7 +8,7 @@ Funcionalidade: Login SisCom
   @Login_sucesso
  Cenário: Login com sucesso
     Dado que eu acesse a página principal
-    Quando realizar o login com email "gisele.meta" e senha "MeGi2020"
+    Quando realizar o login com email "gisele.meta" e senha "mEgI0202"
     Então mostrará o usuário logado ""
 
 

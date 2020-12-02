@@ -2,7 +2,7 @@
 #encoding: utf-8
 #-10dias
 @Front @Reserva
-Funcionalidade: Reserva
+Funcionalidade: Edição de reservas de espaços publicitários
 
   Edita reserva com envio para central de exibição
   @Edita_Reserva_envia

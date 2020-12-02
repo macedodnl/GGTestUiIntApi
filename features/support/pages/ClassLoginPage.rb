@@ -22,7 +22,7 @@ class LoginPage < BaseTest
     def loginPadrao
         setuser("gisele.meta")
         sleep 0.3
-        setpass("MeGi2020")
+        setpass("mEgI0202")
         sleep 0.3
         autenticar
     end

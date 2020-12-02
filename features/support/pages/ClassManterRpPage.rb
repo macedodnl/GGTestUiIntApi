@@ -38,9 +38,10 @@ class ManterRpPage < BaseTest
 
   def map_Abrangencia
     map
-    sleep 1
+    sleep 2
     #mapeamento de elementos da aba abrangencia
     @@Mnemonico = @@divDadosRp.find_element(:id, 'ptApp:rgAbr:sfAdicMerDig:itAdicMerDig::content')
+    # @@Rp
   end
 
   def map_Abrangencia_Pos_Expandir
@@ -50,6 +51,7 @@ class ManterRpPage < BaseTest
   end
 
   def map_Veiculacao
+    sleep 1
     map
     sleep 1
     #mapeamento de elementos da aba abrangencia
@@ -74,7 +76,64 @@ class ManterRpPage < BaseTest
     @@selMaterial = @@tabMaterialDuracao.find_element(:id, 'ptApp:rgVeic:selMat::content')
     @@tabDuracao = @@tabMaterialDuracao.find_element(:id, 'ptApp:rgVeic:selDur')
     @@textDuracao = @@tabDuracao.find_element(:id, 'ptApp:rgVeic:selDur::content')
-    @@pgCalendario= @@tdInclusao.find_element(:id, 'ptApp:rgVeic:pgCalend')
+    @@pgCalendario = @@tdInclusao.find_element(:id, 'ptApp:rgVeic:pgCalend')
+    @@btnIncluir = @@tdInclusao.find_element(:id, 'ptApp:rgVeic:btIcItem')
+
+    #direita
+
+    @@divGeralDireita = @@ultimadivGeral.find_element(:id,'ptApp:rgVeic:psInsRP::s')
+    @@CalendarioMapa = @@divGeralDireita.find_element(:id,'ptApp:rgVeic:cal::mg')
+  end
+
+  def map_DiaInclusao(dia)
+    @@DiaLinha = @@pgCalendario.find_element(:id, "ptApp:rgVeic:itIncItj_id_" + dia + "::content")
+  end
+
+  def map_VeiculacaoMantutencaoItens
+    map_Veiculacao
+    @@clickManutencaoItens = @@tabGrid.find_element(:id, 'ptApp:rgVeic:listaItens::head')
+    @@divManutencaoItens = @@tabGrid.find_element(:id, 'ptApp:rgVeic:listaItens')
+    @@divFiltros = @@divManutencaoItens.find_element(:id, 'ptApp:rgVeic:tFiltro')
+    @@btnFuncoes = @@divFiltros.find_element(:id, 'ptApp:rgVeic:menFun')
+  end
+
+  def map_ManutencaoItensMenuFuncoes
+    map_VeiculacaoMantutencaoItens
+    @@btnFuncoes.click
+    sleep 1
+    @@menuFuncoes = @driver.find_element(:id,'ptApp:rgVeic:menFun::menu')
+    @@opAlterar = @@menuFuncoes.find_element(:id,'ptApp:rgVeic:cmAlt')
+    @@opExcluir = @@menuFuncoes.find_element(:id,'ptApp:rgVeic:cExc')
+    @@opPender = @@menuFuncoes.find_element(:id,'ptApp:rgVeic:cPen')
+    @@opResubmenter = @@menuFuncoes.find_element(:id,'ptApp:rgVeic:cmRes')
+  end
+
+  def map_Modal_AlterarDadosLinha
+    @@divModalPrincipal = @driver.find_element(:id, 'ptApp:rgVeic:dcAltLi:d2')
+    @@tdContaiener = @@divModalPrincipal.find_element(:id, 'ptApp:rgVeic:dcAltLi:d2::contentContainer')
+    @@divDadosLinha = @@tdContaiener.find_element(:id, 'ptApp:rgVeic:dcAltLi:fDadLin')
+    @@txtData = @@divDadosLinha.find_element(:id, 'ptApp:rgVeic:dcAltLi:idVeic::content')
+    @@txtMnemonico = @@divDadosLinha.find_element(:id, 'ptApp:rgVeic:dcAltLi:iAltPrg::content')
+    @@txtModalidade = @@divDadosLinha.find_element(:id, 'ptApp:rgVeic:dcAltLi:itMod::content')
+    @@txtDuracao = @@divDadosLinha.find_element(:id, 'ptApp:rgVeic:dcAltLi:itDura::content')
+    @@divDadosMercado = @@tdContaiener.find_element(:id, 'ptApp:rgVeic:dcAltLi:fDadExi')
+    @@selMaterial = @@divDadosMercado.find_element(:id, 'ptApp:rgVeic:dcAltLi:selMat::content')
+    @@selBreakDeterminado = @@divDadosMercado.find_element(:id, 'ptApp:rgVeic:dcAltLi:itBreak::content')
+    @@divDadosExibidora = @@tdContaiener.find_element(:id, 'ptApp:rgVeic:dcAltLi:pDadVar')
+    @@checkAcrescimo = @@divDadosExibidora.find_element(:id, 'ptApp:rgVeic:dcAltLi:sbrAcre::content')
+    @@checkDecrescimo = @@divDadosExibidora.find_element(:id, 'ptApp:rgVeic:dcAltLi:sbrDesc::content')
+    @@txtVariacao = @@divDadosExibidora.find_element(:id, 'ptApp:rgVeic:dcAltLi:itVar::content')
+    @@divValorItemSelecionado = @@tdContaiener.find_element(:id, 'ptApp:rgVeic:dcAltLi:pDadDis')
+    @@checkDistribuirLinha = @@divValorItemSelecionado.find_element(:id, 'ptApp:rgVeic:dcAltLi:selDist::content')
+    @@txtValor = @@divValorItemSelecionado.find_element(:id, 'ptApp:rgVeic:dcAltLi:itVal::content')
+    @@divBotoes = @@divModalPrincipal.find_element(:id, 'ptApp:rgVeic:dcAltLi:d2::_fce')
+    @@btnOk = @@divBotoes.find_element(:id, 'ptApp:rgVeic:dcAltLi:d2::ok')
+  end
+
+  def map_Modal_Motivos
+    @@divModalMotivos = @driver.find_element(:id, 'dcMotPp:dlMtv')
+    @@ListaMotivos = @@divModalMotivos.find_element(:id, 'dcMotPp:tblMtv::db')
+    @@opErroSistema = @@tdContaiener.find_element(:xpath, '//*[@id="dcMotPp:tblMtv::db"]/table/tbody/tr[16]')
   end
 
   #Frame foco
@@ -182,8 +241,15 @@ class ManterRpPage < BaseTest
     sleep 0.3
   end
 
-  #veiculacao
+  def get_rp
+    @@inserirrp.click
+    rp = @@inserirrp.attribute('value')
+    return rp
+  end
+
+    #veiculacao
   def ad_Programa(mnemonico)
+    #dia de 0 a 34
     map_Veiculacao
     # @@textPrograma.click
     @@textPrograma.send_keys mnemonico, :return
@@ -191,6 +257,7 @@ class ManterRpPage < BaseTest
   end
 
   def sel_Modalidade(modalidade)
+    #dia de 0 a 34
     map_Veiculacao
     @@textModalidade.send_keys modalidade, :return
     sleep 0.3
@@ -206,9 +273,14 @@ class ManterRpPage < BaseTest
     sleep 5
   end
 
+  def sel_Dia(quantidade, dia)
+    map_DiaInclusao(dia)
+    @@DiaLinha.send_keys quantidade
+  end
+
   def sel_Incluir
     @@btnIncluir.click
-    sleep 3
+    sleep 13
   end
 
 
