@@ -1,58 +1,23 @@
 #language:pt
 #encoding: utf-8
 
-@Front @Material @Manter_Material_Tradicional
-Funcionalidade: Material
+@Front @Material @Cadastrar_Novo_Material_Tradicional
+Funcionalidade: Cadastrar novo material
 
   Como usuário do OPEC
-
   Quero manter material tradicional
-
   Para que seja enviado para a Central de Exibição
 
 
 
   Contexto:
-
-    Dado que eu esteja logado no Siscom
-
-    E possua permissão de acesso ao Controle de Materiais
-
-
+    Dado que eu esteja logado no Siscom acesse o Controle de Materiais, para incluir um novo material
 
   Esquema do Cenário: Incluir Material Tradional
-
-    Quando acesso Entrega > Controle de Materiais >Material Tradicional > Manter Dados Básicos
-
-    E aciono Novo
-
-    E informo <Ponto de Venda>
-
-    E informo <Cliente>
-
-    E informo <Agência de Veiculação>
-
-    E informo <Endereço>
-
-    E informo <Título>
-
-    E informo <Duração>
-
-    E seleciono <Formato>
-
-    E informo <Produto>
-
-    E informo <Subcategoria>
-
-    E informo <Marca>
-
-    E informo <Gr. Choque>
-
-    E informo <Data Recebimento>
-
-    E aciono Incluir Dados
-
-    Então dados são salvos com sucesso e gerado <Código do Material>
+    Quando seleciono a opção Novo e informo Ponto de Venda"<ponto_de_venda>",  Cliente "<cliente>", Agência de Veiculação "<agencia_de_veiculacao>", Endereço "<endereco>", Título "<titulo>", Duração "<duracao>", Formato "<formato>", Produto "<produto>", Subcategoria "<subcategoria>", Marca "<marca>", Gr. Choque "<gr_choque>", Data Recebimento "<data_recebimento>"
+    Quando aciono Incluir Dados
+    Então dados são salvos com sucesso, é gerado Código do Material
+    E o Material é enviado para Central de exbição
 
 
 
@@ -66,9 +31,8 @@ Funcionalidade: Material
 
     Exemplos:
 
-      | Ponto de Venda | Cliente | Agência de Veiculação | Endereço | Título | Duração | Formato | Produto | Subcategoria | Marca | Gr. Choque | Data Recebimento |
-
-      | SPP | UNILEVER | ALMAP | SP1 1 | TESTE QA AMACIANTE | 30 | HD | AMACIANTE P/ ROUPAS | AMACIANTE | FOCO| AMACIANTE | 09/10/2020 |
+      |ponto_de_venda |cliente  |agencia_de_veiculacao |endereco |titulo              |duracao |formato |produto              | subcategoria | marca            | gr_choque | data_recebimento |
+      |SPP            |UNILEVER |ALMAP                 |SP1 1    |TESTE AUTOMACAO WEB |30      |HD      |AMACIANTE P/ ROUPAS  | AMACIANTE    | FOFO CONCENTRADO | AMACIANTE | 03/12/2020       |
 
 
 

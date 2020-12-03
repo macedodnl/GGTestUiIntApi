@@ -1,10 +1,8 @@
-require "httparty"
+# require "httparty"
 
 Dado("que eu acesse a página de pesquisas de materias") do
   @login_page.visitar
-  @login_page.setuser("gisele.meta")
-  @login_page.setpass("MeGi2020")
-  @login_page.autenticar
+  @login_page.loginPadrao
   @home_page.visitar_home
   sleep 3
   @MenuSiscom_page.sel_MaterialTradicional

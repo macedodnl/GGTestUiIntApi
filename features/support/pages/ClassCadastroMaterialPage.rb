@@ -3,12 +3,33 @@ require 'selenium-webdriver'
 class CadastroMaterialPage < BaseTest
   include Selenium::WebDriver::Support
 
+  def map
+    sleep 1
+    #mapeamento de elementos de pagina
+    @@formDadosBasicos = @driver.find_element(:name, 'dadosbasicosmaterialtradicionalform')
+    @@txtPontoVenda = @@formDadosBasicos.find_element(:name, 'pontoVenda')
+    @@txtCliente = @@formDadosBasicos.find_element(:name, 'cliente')
+    @@txtAgenciaVeiculacao = @@formDadosBasicos.find_element(:name, 'agenciaVeiculacao')
+    @@txtEndereco = @@formDadosBasicos.find_element(:name, 'endereco')
+    @@checkCrt = @@formDadosBasicos.find_element(:name, 'alternativaCpbCheck')
+    @@txtTitulo = @@formDadosBasicos.find_element(:name, 'titulo')
+    @@txtDuracao = @@formDadosBasicos.find_element(:name, 'duracao')
+    @@checkHd = @@formDadosBasicos.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[7]/tbody/tr[2]/td[6]/input[2]')
+    @@txtSubCategoria = @@formDadosBasicos.find_element(:name, 'item')
+    @@txtMarca = @@formDadosBasicos.find_element(:name, 'marca')
+    @@txtDtRecebimento = @@formDadosBasicos.find_element(:name, 'dataRecebimento')
+  end
+
+  def map_CodigoMaterial
+    map
+    @@idCodigoMaterial = @@formDadosBasicos.find_element(:xpath, '/html/body/form[2]/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td[3]/b')
+  end
+
+  #Frame foco
   def sel_Iframe
-  #mapeamento de elementos de pagina
       outerdiv = @driver.find_element(:xpath, '//*[@id="outerDiv"]')
       iframe = outerdiv.find_element(:id, 'ifrmPrincipal')
     @driver.switch_to.frame iframe
-    return iframe
   end
 
   def busca_Material (mat)
@@ -68,10 +89,86 @@ class CadastroMaterialPage < BaseTest
     sleep 12
   end
 
+  def sel_btnNovo
+    @driver.execute_script ("javascript:menuCommand('novo');")
+    sleep 5
+  end
 
+  def insere_PontoVenda(pontoVenda)
+    map
+    @@txtPontoVenda.send_keys pontoVenda, :tab
+  end
 
+  def insere_Cliente(cliente)
+    @@txtCliente.send_keys cliente, :tab
+  end
 
+  def insere_AgenciaVeiculacao(agencia_veiculacao)
+    @@txtAgenciaVeiculacao.send_keys agencia_veiculacao, :tab
+    # sleep 5
+  end
 
+  def insere_Endereco(endereco)
+    @@txtEndereco.send_keys endereco, :tab
+    # sleep 5
+  end
+
+  def unCheck_Crt
+    @@checkCrt.click
+    # sleep 5
+  end
+
+  def insere_Titulo(titulo)
+    @@txtTitulo.send_keys titulo, :tab
+    # sleep 5
+  end
+
+  def insere_Duracao(duracao)
+    @@txtDuracao.send_keys duracao, :tab
+    # sleep 5
+  end
+
+  def check_HD
+    @@checkHd.click
+    # sleep 5
+  end
+
+  def insere_Subcategoria(subcategoria)
+    @@txtSubCategoria.send_keys subcategoria, :tab
+    # sleep 5
+  end
+
+  def insere_Marca(marca)
+    @@txtMarca.send_keys marca, :tab
+    # sleep 5
+  end
+
+  def insere_DtRecebimento(dtrecebimento)
+    @@txtDtRecebimento.click
+    @@txtDtRecebimento.clear
+    @@txtDtRecebimento.send_keys dtrecebimento, :tab
+    # sleep 5
+  end
+
+  def sel_btnIncluirDados
+    sleep 2
+    @driver.execute_script ("javascript:incluirTimeout('incluir');")
+    sleep 7
+  end
+
+  def get_Material
+    map_CodigoMaterial
+    material = @@idCodigoMaterial.text
+    return material
+  end
+
+  def sel_btnExcluir
+    @driver.execute_script ("javascript:commandExcluir('excluir');")
+    sleep 5
+    alert = @driver.switch_to.alert
+    alert.accept
+    sleep 5
+  end
 
 
 end
