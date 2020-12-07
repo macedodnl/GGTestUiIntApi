@@ -31,4 +31,4 @@ Funcionalidade: Efetuar reservas de espaços publicitários em diversos canais
 
       |caracteristica_compra | produto_portfolio |contato_atendimento     |mes_ano  |cliente            |agencia                  |operacao |ref_mapa     |estrutura_de_mercado |mnemonico_d_programa |modalidade |material     |duracao  |quantidade |dia  |
       |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |gn6                  |6N21H                |CPT        |A Determinar |20       |1          |15   |
-#      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |gn7                  |7F21H                |CPT        |A Determinar |20       |1          |15   |
+      |1                     | 55                |Ana Claudia Armiliato.  |12/2020  |ARTPHARMA FARMACIA |ELLO PROPAGANDA LTDA -ME |VGN      |0000000002   |gn7                  |7F21H                |CPT        |A Determinar |20       |1          |15   |

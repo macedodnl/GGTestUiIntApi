@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 
-class MenuSiscomPage < BaseTest
+class MenuSisComPage < BaseTest
 
   def sel_Frame
     @driver.switch_to.frame @driver.find_element(name: 'conteudo')
@@ -27,7 +27,7 @@ class MenuSiscomPage < BaseTest
     @driver.action.move_to(opRegistroCompra).perform
     opRegistroCompra.click
     opIncluirRp.click
-    sleep 5
+    # sleep 5
   end
 
   def sel_GradeBasica

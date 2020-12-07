@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 
-class HomePage < BaseTest
+class HomeSisComPage < BaseTest
 
     def visitar_home
         @driver.navigate.to AUTH_URL

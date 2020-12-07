@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 
-class ManterRpPage < BaseTest
+class ManterRpSisComPage < BaseTest
   include Selenium::WebDriver::Support
 
   def map

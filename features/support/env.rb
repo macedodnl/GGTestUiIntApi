@@ -11,10 +11,11 @@ require_relative '../support/pages/ClassBaseTest.rb'
 
 BASE_URL = "https://siscomh.redeglobo.com.br/"
 AUTH_URL = "https://siscomh.redeglobo.com.br/welcome/FrontComponent.jsp?pagina=wall.jsp&origem=globo&timeMilis=1605189834670"
+BASECE_URL = "https://ad-operation-app.backstage.dev.globoi.com/"
 
 
 
-Before do
+Before do |scenario|
 
   # options = Selenium::WebDriver::IE::Options.new
   # options.file_upload_dialog_timeout = 2000
@@ -22,31 +23,38 @@ Before do
   # options.ignore_protected_mode_settings = true
   # @driver = Selenium::WebDriver.for(:ie, options: options)
 
-  #args: ['-headless'] -> execução em modo texto
-  #args: [] -> execução em modo gráfico
-  opts = Selenium::WebDriver::Chrome::Options.new(args: ['-headless'])
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(accept_insecure_certs: true)
-  caps["pageLoadStrategy"] = "eager"
-  @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)
+  if scenario.feature.name.include?("PBAS")    #execução em modo gráfico remoto
+    caps = Selenium::WebDriver::Remote::Capabilities.ie
+    # caps["pageLoadStrategy"] = "eager"
+    @driver = Selenium::WebDriver.for :remote, :url => "http://localhost:4444/wd/hub/", :desired_capabilities => caps
+    else #args: ['-headless'] -> execução em modo texto local
+      opts = Selenium::WebDriver::Chrome::Options.new(args: ['-headless'])
+      caps = Selenium::WebDriver::Remote::Capabilities.chrome(accept_insecure_certs: true)
+      # caps["pageLoadStrategy"] = "eager"
+      @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)
+  end
 
-  @driver.manage.timeouts.implicit_wait = 30
-  @driver.manage.timeouts.page_load= 30
+  @driver.manage.timeouts.implicit_wait = 50
+  @driver.manage.timeouts.page_load= 50
   @driver.manage.window.resize_to(1366, 768)
 
-
   # Instancias de paginas #
-  @login_page = LoginPage.new(@driver)
-  @home_page = HomePage.new(@driver)
-  @MenuSiscom_page = MenuSiscomPage.new(@driver)
-  @CadastroMaterial_page = CadastroMaterialPage.new(@driver)
-  @ManterRp_page = ManterRpPage.new(@driver)
+  @BaseTest = BaseTest.new(@driver)
+  @loginSisCom_page = LoginSisComPage.new(@driver)
+  @homeSisCom_page = HomeSisComPage.new(@driver)
+  @MenuSisCom_page = MenuSisComPage.new(@driver)
+  @CadastroMaterialSisCom_page = CadastroMaterialSisComPage.new(@driver)
+  @ManterRpSisCom_page = ManterRpSisComPage.new(@driver)
+
+  @loginCe_page = LoginCePage.new(@driver)
+  @homeCe_page = HomeCePage.new(@driver)
   # Fim instancias de paginas #
 
 end
 
 After do |scenario|
   if scenario.failed?
-  embed(@home_page.print, "image/png", "Screenshot")
+  embed(@BaseTest.print, "image/png", "Screenshot")
   @driver.quit
   else
     @driver.quit

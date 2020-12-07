@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 
-class CadastroMaterialPage < BaseTest
+class CadastroMaterialSisComPage < BaseTest
   include Selenium::WebDriver::Support
 
   def map
@@ -46,7 +46,7 @@ class CadastroMaterialPage < BaseTest
     @driver.action.move_to(material).perform
     material.click
     material.send_keys mat, :return
-    # sleep 12
+    sleep 12
   end
 
   def edita_Material(endereco, titulo, obs)
@@ -105,49 +105,40 @@ class CadastroMaterialPage < BaseTest
 
   def insere_AgenciaVeiculacao(agencia_veiculacao)
     @@txtAgenciaVeiculacao.send_keys agencia_veiculacao, :tab
-    # sleep 5
   end
 
   def insere_Endereco(endereco)
     @@txtEndereco.send_keys endereco, :tab
-    # sleep 5
   end
 
   def unCheck_Crt
     @@checkCrt.click
-    # sleep 5
   end
 
   def insere_Titulo(titulo)
     @@txtTitulo.send_keys titulo, :tab
-    # sleep 5
   end
 
   def insere_Duracao(duracao)
     @@txtDuracao.send_keys duracao, :tab
-    # sleep 5
   end
 
   def check_HD
     @@checkHd.click
-    # sleep 5
   end
 
   def insere_Subcategoria(subcategoria)
     @@txtSubCategoria.send_keys subcategoria, :tab
-    # sleep 5
   end
 
   def insere_Marca(marca)
     @@txtMarca.send_keys marca, :tab
-    # sleep 5
   end
 
   def insere_DtRecebimento(dtrecebimento)
     @@txtDtRecebimento.click
     @@txtDtRecebimento.clear
     @@txtDtRecebimento.send_keys dtrecebimento, :tab
-    # sleep 5
   end
 
   def sel_btnIncluirDados
