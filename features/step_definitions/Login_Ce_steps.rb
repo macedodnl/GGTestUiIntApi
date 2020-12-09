@@ -12,19 +12,16 @@ Quando("realizar o login com usuário {string}, senha {string} e token {string}"
 end
 
 Então("exibirá a página home do usuário logado {string}") do |user|
-  userlogado = @homeCe_page.getuser
-  userlogado.eql? user
+  @homeCe_page.getuser(user)
   embed(@loginCe_page.print, "image/png", "Screenshot")
 end
 
 Então("exibirá a {string} de campo obrigatório") do |msg|
-  alert = @loginCe_page.alertNull
-  alert.eql? msg
+  @loginCe_page.alertNull(msg)
   embed(@loginCe_page.print, "image/png", "Screenshot")
 end
 
 Então("exibirá a {string}  de campo inválido") do |msg|
-  alert = @loginCe_page.alertaPassUser
-  alert.eql? msg
+  @loginCe_page.alertaPassUser(msg)
   embed(@loginCe_page.print, "image/png", "Screenshot")
 end

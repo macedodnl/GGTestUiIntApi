@@ -20,5 +20,5 @@ Funcionalidade: Material
     Exemplos:
       |material |endereco |titulo                 |obs                                  |
       |222113   |SP1 1    |MAT P AUTO D TSTS      |NOVA OBS INSERIDA PELO ROBÔ DE TESTES|
-      |222113   |DF 1     |MAT P AUTO D TSTS 2    |NOVA OBS INSERIDA PELO ROBÔ DE TESTES|
-      |222113   |RJ 1     |CGA TESTE IBMS SEC 20  |TAG PROGRAMA ORIGEM                  |
+#      |222113   |DF 1     |MAT P AUTO D TSTS 2    |NOVA OBS INSERIDA PELO ROBÔ DE TESTES|
+#      |222113   |RJ 1     |CGA TESTE IBMS SEC 20  |TAG PROGRAMA ORIGEM                  |

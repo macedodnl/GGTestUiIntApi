@@ -1,6 +1,7 @@
 require "selenium-webdriver"
 
 class LoginCePage < BaseTest
+  include RSpec::Matchers
 
   def map
     sleep 1
@@ -10,20 +11,20 @@ class LoginCePage < BaseTest
     @@txtToken = @driver.find_element(:id, 'two_factor')
   end
 
-  def alertaPassUser
+  def alertaPassUser(msgesperadapassuser)
     @@alertPassUser = @driver.find_element(:class, "ant-alert-message")
     alert = @@alertPassUser.text
-    return alert
+    (msgesperadapassuser).eql? (alert)
   end
 
   def alertaToken
     @@alertToken = @driver.find_element(:class, "ant-alert ant-alert-error-token")
   end
 
-  def alertNull
+  def alertNull(msgesperada)
     @@alertNull = @driver.find_element(:class, "ant-form-item-explain")
     alert = @@alertNull.text
-    return alert
+    (msgesperada).eql? (alert)
   end
 
   def visitar
@@ -57,7 +58,4 @@ class LoginCePage < BaseTest
     autenticar
   end
 
-  def aceite
-    @driver.switch_to.alert.accept
-  end
 end

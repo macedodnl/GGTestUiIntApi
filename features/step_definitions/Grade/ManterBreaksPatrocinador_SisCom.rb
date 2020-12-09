@@ -1,14 +1,14 @@
 Dado("que eu esteja logado no Siscom") do
-  @loginSisCom_page.visitar
-  @loginSisCom_page.loginPadraoie
-  sleep 1
-  @homeSisCom_page.visitar_home
-  sleep 20
+  @loginSisCom_page.visitarPrd
+  @loginSisCom_page.loginPadraoPrd
+  # sleep 0.3
+  @homeSisCom_page.visitar_home_Prd
   embed(@homeSisCom_page.print, "image/png", "Screenshot")
 end
 
 Dado("possua permissão de acesso ao PBAS") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @MenuSisCom_page.sel_GradeBasica
+  embed(@MenuSisCom_page.print, "image/png", "Screenshot")
 end
 
 Dado("<Programa> conste na Programação do dia <Data>") do

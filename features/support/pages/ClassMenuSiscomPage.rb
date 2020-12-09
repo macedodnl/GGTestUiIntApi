@@ -38,14 +38,11 @@ class MenuSisComPage < BaseTest
     menuEntrega = sel_Menu.find_element(:xpath, './/*[contains(., "Entrega        ")]')
     opProgramacao = menuEntrega.find_element(:class, 'menu').find_element(:class, 'sub')
     tabProgramacao = opProgramacao.find_element(:id, 'margemdosubs')
-    opConsultaVigencia = tabProgramacao.find_element(:xpath, '//*[@id="349"]')
     opGradeBasica = tabProgramacao.find_element(:xpath, '//*[@id="341"]')
 
     #acoes
-    # @driver.action.move_to(menuEntrega).perform #firefox (menu expludindo a tela para cima)
     menuEntrega.click
     @driver.action.move_to(opProgramacao).perform
-    # @driver.action.move_to(opConsultaVigencia).perform #firefox (menu expludindo a tela para cima)
     @driver.action.move_to(opGradeBasica).perform
     opGradeBasica.click
     sleep 12
@@ -67,7 +64,6 @@ class MenuSisComPage < BaseTest
     menuEntrega.click
     @driver.action.move_to(opControleMateriais).perform
     opControleMateriais.click
-    # @driver.action.move_to(opRelatorioConsulta).perform #firefox (menu expludindo a tela para cima)
     @driver.action.move_to(opMaterialTradicial).perform
     opMaterialTradicial.click
     @driver.action.move_to(tabelaManterDadosbasicos).perform

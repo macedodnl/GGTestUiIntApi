@@ -6,10 +6,10 @@ class HomeCePage < BaseTest
     @@userAutenticado = @driver.find_element(:class, 'name___2eduw')
   end
 
-  def getuser
+  def getuser(useresperado)
     map
     user = @@userAutenticado.text
-    return user
+    (user).eql? (useresperado)
   end
 
 end

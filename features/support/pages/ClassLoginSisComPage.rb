@@ -14,6 +14,10 @@ class LoginSisComPage < BaseTest
         @driver.navigate.to BASE_URL
     end
 
+    def visitarPrd
+        @driver.navigate.to BASE_URL_PRD
+    end
+
     def setuser(user)
         map
         @@txtUser.send_keys user
@@ -32,16 +36,24 @@ class LoginSisComPage < BaseTest
     def loginPadrao
         setuser("gisele.meta")
         sleep 0.3
-        setpass("mEgI0202")
+        setpass("Gisf1808")
         sleep 0.3
         autenticar
     end
 
-    def loginPadraoie
+    def loginPadraoPrd
+    setuser("gisele.meta")
+    sleep 0.3
+    setpass("Gisf1808")
+    sleep 0.3
+    autenticar
+    end
+
+    def loginPadraoiePrd
         setuser("gisele.meta")
         sleep 0.3
-        @@txtPass.send_keys "mEgI0202", :return
-        sleep 0.3
+        @@txtPass.send_keys "Gisf1808", :return
+        # sleep 0.3
     end
 
     def aceite
