@@ -21,18 +21,22 @@ end
 
 Quando("seleciono {string}") do |string|
   @GradeProgramacaoBasica_page.sel_Iframe
-  sleep 1
-  @GradeProgramacaoBasica_page.sel_Dia('18/12/2020')
-  sleep 2
-  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
-  sleep 2
+  @GradeProgramacaoBasica_page.sel_Dia('19/12/2020')
   @GradeProgramacaoBasica_page.sel_Canal('61')
+  @GradeProgramacaoBasica_page.insere_Abrangencia('gn6')
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
+  @GradeProgramacaoBasica_page.sel_Ok
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
+  @GradeProgramacaoBasica_page.sel_CheckBox
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
+  @GradeProgramacaoBasica_page.sel_Pesquisar
   embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
   sleep 15
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
 end
 
 Quando("em abrangência informo {string}") do |mnemonico|
-
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
 end
 
 Quando("informo {string}") do |string|
