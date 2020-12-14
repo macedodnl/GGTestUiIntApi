@@ -7,24 +7,32 @@ Dado("que eu esteja logado no Siscom") do
 end
 
 Dado("possua permissão de acesso ao PBAS") do
+  embed(@homeSisCom_page.print, "image/png", "Screenshot")
+end
+
+Dado("<Programa> conste na Programação do dia <Data>") do
+  embed(@homeSisCom_page.print, "image/png", "Screenshot")
+end
+
+Quando("acesso Entrega → Programação → Grade de Programação Básica") do
   @MenuSisCom_page.sel_GradeBasica
   embed(@MenuSisCom_page.print, "image/png", "Screenshot")
 end
 
-Dado("<Programa> conste na Programação do dia <Data>") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando("acesso Entrega → Programação → Grade de Programação Básica") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Quando("seleciono {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  @GradeProgramacaoBasica_page.sel_Iframe
+  sleep 1
+  @GradeProgramacaoBasica_page.sel_Dia('18/12/2020')
+  sleep 2
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
+  sleep 2
+  @GradeProgramacaoBasica_page.sel_Canal('61')
+  embed(@GradeProgramacaoBasica_page.print, "image/png", "Screenshot")
+  sleep 15
 end
 
-Quando("em abrangência informo {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Quando("em abrangência informo {string}") do |mnemonico|
+
 end
 
 Quando("informo {string}") do |string|

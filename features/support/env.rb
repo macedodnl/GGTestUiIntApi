@@ -43,6 +43,8 @@ Before do |scenario|
   @MenuSisCom_page = MenuSisComPage.new(@driver)
   @CadastroMaterialSisCom_page = CadastroMaterialSisComPage.new(@driver)
   @ManterRpSisCom_page = ManterRpSisComPage.new(@driver)
+  @GradeProgramacaoBasica_page = GradeProgramacaoBasicaPage.new(@driver)
+  @IncluiPrograma_page = IncluiProgramaPage.new(@driver)
 
   @loginCe_page = LoginCePage.new(@driver)
   @homeCe_page = HomeCePage.new(@driver)

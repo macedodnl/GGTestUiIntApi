@@ -28,7 +28,7 @@ Funcionalidade: Login Central de exibição
     Quando realizar o login com usuário "<email>", senha "<senha>" e token "<token>"
     Então exibirá a "<mensagem>"  de campo inválido
     Exemplos:
-      |email  |senha  | token |mensagem               |
-      |glob   |12345  |12345  |Usuario o senha errada |
-      |globo  |1234   |12345  |Usuario o senha errada |
+      |email  |senha  | token |mensagem                 |
+      |glob   |12345  |12345  |Usuário ou senha errada  |
+      |globo  |1234   |12345  |Usuário ou senha errada  |
 #      |globo  |12345  |2      |Token inválido         |

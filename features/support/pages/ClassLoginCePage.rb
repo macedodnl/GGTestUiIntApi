@@ -14,7 +14,7 @@ class LoginCePage < BaseTest
   def alertaPassUser(msgesperadapassuser)
     @@alertPassUser = @driver.find_element(:class, "ant-alert-message")
     alert = @@alertPassUser.text
-    (msgesperadapassuser).eql? (alert)
+    expect(alert).to include(msgesperadapassuser)
   end
 
   def alertaToken
@@ -24,7 +24,7 @@ class LoginCePage < BaseTest
   def alertNull(msgesperada)
     @@alertNull = @driver.find_element(:class, "ant-form-item-explain")
     alert = @@alertNull.text
-    (msgesperada).eql? (alert)
+    expect(alert).to include(msgesperada)
   end
 
   def visitar

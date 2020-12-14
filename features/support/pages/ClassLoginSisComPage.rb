@@ -36,7 +36,7 @@ class LoginSisComPage < BaseTest
     def loginPadrao
         setuser("gisele.meta")
         sleep 0.3
-        setpass("Gisf1808")
+        setpass("mEgI0202")
         sleep 0.3
         autenticar
     end

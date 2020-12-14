@@ -4,6 +4,7 @@ Dado("que eu esteja logado no Siscom acesse a Reserva, para incluir um rp") do
   @homeSisCom_page.visitar_home
   sleep 3
   @MenuSisCom_page.sel_IncluirRp
+  embed(@ManterRpSisCom_page.print, "image/png", "Screenshot")
 end
 
 Quando("preencho o formulário na aba de caracterização com Característica de Compra {string}, Produto do Portfolio {string}, Contato de Atendimento {string}, Mes ano {string},  Cliente {string}, Agencia {string}, Operacao {string},  referência do mapa {string}") do |caracteristica_compra, produto_portfolio, contato_atendimento, mes_ano, cliente, agencia, operacao, refmapa|

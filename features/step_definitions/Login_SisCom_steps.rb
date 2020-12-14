@@ -14,11 +14,9 @@ end
 Then("mostrará o usuário logado {string}") do |nome_usuario|
   @homeSisCom_page.visitar_home
   sleep 3
-  @MenuSisCom_page.sel_GradeBasica
   embed(@homeSisCom_page.print, "image/png", "Screenshot")
 end
 
 Then("mostrará a mensagem usuário ou senha inválidos") do
-  @loginSisCom_page.aceite
   embed(@loginSisCom_page.print, "image/png", "Screenshot")
 end

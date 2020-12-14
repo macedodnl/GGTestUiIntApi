@@ -38,7 +38,6 @@ Funcionalidade: PBAS
   | 11/05/2020 | TV ABERTA | NAC | NAC | NBRA | 5 | FUTEBOL | 03/12/2020 | 03/12/2020 |
 
 
-
 #  Critério de Aceite:
 #
 #  Realizar processo de Associação de Projeto ao break de Programa na PBAS;

@@ -45,7 +45,7 @@ class MenuSisComPage < BaseTest
     @driver.action.move_to(opProgramacao).perform
     @driver.action.move_to(opGradeBasica).perform
     opGradeBasica.click
-    sleep 12
+    sleep 6
   end
 
   def sel_MaterialTradicional
