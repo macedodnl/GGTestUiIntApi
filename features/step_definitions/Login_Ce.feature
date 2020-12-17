@@ -1,7 +1,7 @@
 #language:pt
 #encoding: utf-8
 
-@Login @Login_Ce
+@Login @Login_Ce @Ce
 Funcionalidade: Login Central de exibição
 
   Login com e sem falha no sistema siscom
@@ -22,6 +22,7 @@ Funcionalidade: Login Central de exibição
       |       |12345  |12345  |Campo Obrigatório! |
       |globo  |12345  |       |Campo Obrigatório! |
 
+
   @Login_Ce_Falha @Login_Ce_Dados_Invalidos
   Esquema do Cenário: Login com falha sem informar dados
     Dado que eu acesse a página principal da central de exibição
@@ -31,4 +32,4 @@ Funcionalidade: Login Central de exibição
       |email  |senha  | token |mensagem                 |
       |glob   |12345  |12345  |Usuário ou senha errada  |
       |globo  |1234   |12345  |Usuário ou senha errada  |
-#      |globo  |12345  |2      |Token inválido         |
+      #      |globo  |12345  |2      |Token inválido         |

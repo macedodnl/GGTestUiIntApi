@@ -14,7 +14,7 @@ AUTH_URL = "https://siscomh.redeglobo.com.br/welcome/FrontComponent.jsp?pagina=w
 BASE_URL_PRD = "https://siscom.redeglobo.com.br/"
 AUTH_URL_PRD = "https://siscom.redeglobo.com.br/welcome/FrontComponent.jsp?pagina=wall.jsp&origem=globo&timeMilis=1605189834670"
 
-BASECE_URL = "https://ad-operation-app.backstage.dev.globoi.com/"
+BASECE_URL = "https://ad-operation-app.backstage.qa.globoi.com/"
 
 
 
@@ -26,7 +26,7 @@ Before do |scenario|
     caps["pageLoadStrategy"] = "eager"
     @driver = Selenium::WebDriver.for :remote, :url => "http://localhost:4444/wd/hub/", :desired_capabilities => caps
     else #args: ['-headless'] -> execução em modo texto local
-      opts = Selenium::WebDriver::Chrome::Options.new(args: ['-headless'])
+      opts = Selenium::WebDriver::Chrome::Options.new(args: [])
       caps = Selenium::WebDriver::Remote::Capabilities.chrome(accept_insecure_certs: true, unhandledPromptBehavior: 'accept')
       # caps["pageLoadStrategy"] = "eager"
       @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)
@@ -48,6 +48,9 @@ Before do |scenario|
 
   @loginCe_page = LoginCePage.new(@driver)
   @homeCe_page = HomeCePage.new(@driver)
+  @processoRoteiroCe_page = ProcessoRoteiroPage.new(@driver)
+  @roteiroPage_page = RoteiroPage.new(@driver)
+  @encaixeInsercoes_page = EncaixeInsercoesPage.new(@driver)
   # Fim instancias de paginas #
 
 end

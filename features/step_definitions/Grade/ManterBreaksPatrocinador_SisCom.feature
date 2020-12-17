@@ -15,7 +15,7 @@ Funcionalidade: PBAS
     E <Programa> conste na Programação do dia <Data>
 
 
-  @teste
+  @teste_grade
   Esquema do Cenário: Associar Projeto ao Break
     Quando acesso Entrega → Programação → Grade de Programação Básica
     E seleciono "<Data>"
