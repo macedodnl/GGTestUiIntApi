@@ -15,6 +15,7 @@ class ProcessoRoteiroPage < BaseTest
     @@selGrade = @driver.find_element(:id, 'gri_Status')
     @@selRoteiro = @driver.find_element(:id, 'gri_StatusPlaylist')
     @@Fechar = @driver.find_element(:class, 'ant-drawer-close')
+    @@btnAplicar = @driver.find_element(:css, 'button[type="submit"]')
   end
 
   def sel_Filtrar
@@ -36,9 +37,39 @@ class ProcessoRoteiroPage < BaseTest
     @@selVeiculo.send_keys(:return)
   end
 
+  def set_Descricao (descricao)
+    map_Filtro
+    @@txtData.click
+    @@txtData.clear
+    @@txtData.send_keys descricao, :return
+  end
+
   def FecharFiltro
     map_Filtro
     @@Fechar.click
+  end
+
+  def aplicarFiltro
+    map_Filtro
+    @@btnAplicar.click
+  end
+
+  def sel_TipoRoteiro
+    map_Filtro
+    @driver.action.move_to(@@selTipoRoteiro).perform
+    @@selTipoRoteiro.click
+    sleep 1
+    # @@selTipoRoteiro.send_keys(:arrow_down)
+    @@selTipoRoteiro.send_keys(:return)
+  end
+
+  def sel_Roteiro
+    map_Filtro
+    @driver.action.move_to(@@selRoteiro).perform
+    @@selRoteiro.click
+    sleep 1
+    # @@selTipoRoteiro.send_keys(:arrow_down)
+    @@selRoteiro.send_keys(:return)
   end
 
 

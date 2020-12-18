@@ -4,10 +4,10 @@ class EncaixeInsercoesPage < BaseTest
 
   def map
     @@linkExec = @driver.find_element(:css, 'div[aria-label="Execultar"]')
-    # @@divScripts = @driver.find_element(:text, 'isc_DU')
-    # @@linkAux = @driver.find_element(:text, 'Geral')
-    @@linkAux = @driver.find_element(:css, 'tr[aria-posinset="2"]')
-    @@linkGeral = @@linkAux.find_element(:css, 'div[role="presentation"]')
+    @@linkGeral = @driver.find_element(:xpath, '/html/body/div[2]/div[1]/div/div/div/div[6]/div[2]/div/div[3]/div[3]/div/div[2]/div/table/tbody/tr[2]')
+    @@linkParalelas = @driver.find_element(:xpath, '/html/body/div[2]/div[1]/div/div/div/div[6]/div[2]/div/div[3]/div[3]/div/div[2]/div/table/tbody/tr[3]')
+    @@btnVoltarRoteiro = @driver.find_element(:xpath, '/html/body/div[2]/div[1]/div/div/div/div[6]/div[1]/div[2]/div/div/div/table/tbody/tr/td/table/tbody/tr/td[1]/span')
+    # (:css, 'span[id="isc_7Picon"]') (:id, 'isc_7P')
   end
 
   def exec
@@ -16,8 +16,16 @@ class EncaixeInsercoesPage < BaseTest
   end
 
   def sel_Geral
-    @driver.action.move_to(@@linkGeral).perform
-    @@linkAux.click
+    @driver.action.click_and_hold(@@linkGeral).perform
+  end
+
+  def sel_Paralelas
+    @driver.action.click_and_hold(@@linkParalelas).perform
+  end
+
+  def sel_VoltaRoteiro
+    @driver.action.click_and_hold(@@btnVoltarRoteiro).perform
+    @@btnVoltarRoteiro.click
   end
 
   # def sel_Iframe

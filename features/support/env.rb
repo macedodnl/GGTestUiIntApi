@@ -32,8 +32,8 @@ Before do |scenario|
       @driver = Selenium::WebDriver.for(:chrome, :desired_capabilities => caps, options: opts)
   end
 
-  @driver.manage.timeouts.implicit_wait = 50
-  @driver.manage.timeouts.page_load= 50
+  @driver.manage.timeouts.implicit_wait = 80
+  @driver.manage.timeouts.page_load= 80
   @driver.manage.window.resize_to(1366, 768)
 
   # Instancias de paginas #
